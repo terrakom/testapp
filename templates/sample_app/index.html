@@ -1,0 +1,63 @@
+<!-- include the csrf token to be used in POST request -->
+<div class="csrf-container">{% csrf_token %}</div>
+
+<!-- Tell Django to load the static files specific to this app -->
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'sample_app/css/main.css' %}" />
+
+<!-- Toolbar will get loaded outside of page-content-inner -->
+<div class="sapp tool-bar" devid="toolbar">
+    <div class="title">Sample app</div>
+    <div katana-click="sapp.open_menu" class="button fa fa-bookmark"> Menu</div>
+</div>
+
+<div class="sapp main-frame">
+    <label>Are you hungry?</label>
+    <!-- Since Warrior UI checkbox has a dedicated style across the framework
+        it is recommended that if developer wants to overwrite checkbox style
+        the dev should either overwrite it using a parent div or use
+        css selector with both checkbox and app name-->
+    <div class="override-checkbox">l
+        <input type="checkbox" id="is-hungry" title="Default" checked/>
+        <label/>
+    </div>
+
+    <div class="input-frame">
+        <label>How many dishes can you eat?</label>
+        <!-- katana-change calls the function whenever a change in value is detected -->
+        <input key="my-input" katana-change="sapp.validate"/>
+        <!-- katana-click calls the function whenever an onclick event is triggered -->
+        <div class="button fa fa-paper-plane" katana-click="sapp.send"> Send</div>
+    </div>
+    <table class="sapp table">
+        <thead>
+            <tr class="row">
+                <th class="col-sm-1">Date</th>
+                <th class="col-sm-10">Food choice</th>
+                <th class="col-sm-1">Remove entry</th>
+            </tr>
+        </thead>
+        <tbody id="sapp-food-table">
+            <tr class="row">
+                <td class="col-sm-1">3/26/2018</td>
+                <td class="col-sm-10 text-left">Pizza, Big Mac, Texas BBQ</td>
+                <td class="col-sm-1"><div class="button fa fa-eraser" katana-click="sapp.delete"></div></td>
+            </tr>
+            <tr class="row">
+                <td class="col-sm-1">3/27/2018</td>
+                <td class="col-sm-10 text-left">Calamari, Tonkotsu Ramen</td>
+                <td class="col-sm-1"><div class="button fa fa-eraser" katana-click="sapp.delete"></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- auto-init calls the function whenever the app is loaded -->
+<table auto-init="sapp.hide">
+    <tbody id="sapp-template-row">
+        <tr class="row">
+            <td class="col-sm-1">3/27/2018</td>
+            <td class="col-sm-10 text-left"></td>
+            <td class="col-sm-1"><div class="button fa fa-eraser" katana-click="sapp.delete"></div></td>
+        </tr>
+    </tbody>
+</table>

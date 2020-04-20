@@ -1,0 +1,35 @@
+.sapp.tool-bar .button {
+	padding-top: 6px;
+}
+
+.sapp.main-frame {
+	padding: 10px;
+}
+
+/* One way to change position of the input checkbox */
+.sapp .override-checkbox {
+    position: relative;
+    display: inline-block;
+    top: -22px;
+    left: 6px;
+}
+
+.sapp .input-frame input{
+	display: inline-block;
+	width: 50%;
+	margin-left: 10px;
+}
+
+.sapp .input-frame .button{
+	padding: 5 0 0 10px;
+	width: 5%;
+	height: 30px;
+}
+
+.sapp table {
+	padding-top: 10px;
+}
+
+.sapp table .button {
+	border: 0px;
+}
