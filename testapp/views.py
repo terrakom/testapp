@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# import random
+import random
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
@@ -13,4 +13,5 @@ def index(request):
 def send_request(request):
     count = int(request.POST["count"])
     random.shuffle(food)
+    sas
     return HttpResponse(", ".join(food[0:count]))
