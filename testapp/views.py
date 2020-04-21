@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import random
+# import random
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
